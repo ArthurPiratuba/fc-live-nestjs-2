@@ -1,0 +1,11 @@
+services:
+  fc_live_nestjs_2:
+    container_name: fc_live_nestjs_2
+    build: .
+    ports:
+      - 18101:3000
+    volumes:
+      - .:/home/node/app
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    
