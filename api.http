@@ -4,13 +4,24 @@ GET http://localhost:3000/test
 GET http://localhost:3000/categories
 
 ###
-GET http://localhost:3000/categories/1
+GET http://localhost:3000/categories/4
 
 ###
 POST http://localhost:3000/categories
 Content-Type: application/json
 
 {
-    "name": "Nome da categoria",
-    "description": "Descrição da categoria"
+    "name": "Nome da categoria"
 }
+
+###
+PATCH http://localhost:3000/categories/3
+Content-Type: application/json
+
+{
+    "name": "Nome atualizado",
+    "description": "Descrição atualizada"
+}
+
+###
+DELETE http://localhost:3000/categories/5
