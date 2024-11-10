@@ -1,11 +1,23 @@
 services:
+
   fc_live_nestjs_2:
     container_name: fc_live_nestjs_2
     build: .
     ports:
-      - 18101:3000
-    volumes:
-      - .:/home/node/app
+      - 18101:3000   
     extra_hosts:
       - host.docker.internal:host-gateway
+    volumes:
+      - .:/home/node/app
+
+  fc_live_mysql_2:
+    container_name: fc_live_mysql_2
+    image: mysql:8.0.30-debian
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nest
+    volumes:
+      - ./.docker/dbdata:/var/lib/mysql:delegated
     

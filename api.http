@@ -1,0 +1,16 @@
+GET http://localhost:3000/test
+
+###
+GET http://localhost:3000/categories
+
+###
+GET http://localhost:3000/categories/1
+
+###
+POST http://localhost:3000/categories
+Content-Type: application/json
+
+{
+    "name": "Nome da categoria",
+    "description": "Descrição da categoria"
+}

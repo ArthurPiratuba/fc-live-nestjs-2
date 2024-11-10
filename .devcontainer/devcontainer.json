@@ -21,6 +21,14 @@
 			"plugins": "git git-flow F-Sy-H zsh-autosuggestions zsh-completions",
 			"omzPlugins": "https://github.com/z-shell/F-Sy-H https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-completions"
 		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"humao.rest-client",
+				"ms-azuretools.vscode-docker"
+			]
+		}
 	}
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
