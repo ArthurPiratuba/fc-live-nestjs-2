@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { PrismaExceptionFilter } from './exception.filters/prisma.exception-filter';
 import { CatchAllErrorsExceptionFilter } from './exception.filters/catch-all-errors.exception-filter';
 import { ValidationPipe } from '@nestjs/common';
+import { InvalidRelationExceptionFilter } from './exception.filters/invalid-relation.exception-filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -10,10 +11,12 @@ async function bootstrap() {
   app.useGlobalFilters(
     new CatchAllErrorsExceptionFilter(httpAdapter),
     new PrismaExceptionFilter(),
+    new InvalidRelationExceptionFilter()
   );
   app.useGlobalPipes(
     new ValidationPipe({
-      errorHttpStatusCode: 422
+      errorHttpStatusCode: 422,
+      transform: true
     })
   )
   await app.listen(process.env.PORT ?? 3000);

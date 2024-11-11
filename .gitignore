@@ -1,4 +1,6 @@
 .docker
+upload/*
+!/upload/.gitkeep
 # compiled output
 /dist
 /node_modules

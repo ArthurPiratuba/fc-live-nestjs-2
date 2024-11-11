@@ -10,13 +10,12 @@ export class PrismaExceptionFilter implements ExceptionFilter {
         if (exception.code === 'P2025') {
             return response.status(404).json({
                 statusCode: 404,
-                message: exception.message
+                mensage: exception.message
             });
         }
-
         return response.status(500).json({
             statusCode: 500,
-            message: 'Internal Server Error'
-        });
+            message: 'Internal Server Error Custom'
+        })
     }
 }
