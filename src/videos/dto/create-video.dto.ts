@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import {
     IsInt,
@@ -9,15 +10,18 @@ import {
 } from 'class-validator';
 
 export class CreateVideoDto {
+    @ApiProperty()
     @MaxLength(255)
     @IsString()
     @IsNotEmpty()
     title: string;
 
+    @ApiProperty({ type: 'string' })
     @IsString()
     @IsOptional()
     description: string | null;
 
+    @ApiProperty()
     @Min(1)
     @IsInt()
     @IsNotEmpty()
@@ -26,5 +30,6 @@ export class CreateVideoDto {
 }
 
 export class CreateVideoWithUploadDto extends CreateVideoDto {
+    @ApiProperty({ type: 'string', format: 'binary' })
     file: string;
 }
